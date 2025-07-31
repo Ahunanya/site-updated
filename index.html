@@ -4,9 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blessing Ahunanya</title>
-    <!-- bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
+    <style>
+      .fly-in {
+        opacity: 0;
+        transform: translateY(80px) scale(0.92);
+        filter: blur(2px);
+        transition:
+          opacity 0.9s cubic-bezier(0.22,1,0.36,1),
+          transform 0.9s cubic-bezier(0.22,1,0.36,1),
+          filter 0.7s cubic-bezier(0.22,1,0.36,1);
+      }
+      .fly-in.visible {
+        opacity: 1;
+        transform: none;
+        filter: none;
+      }
+    </style>
+     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+      <link href="./output.css" rel="stylesheet">
      
 
     <link rel="icon" href="favicon.ico">
@@ -19,188 +34,203 @@
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Sacramento&display=swap" rel="stylesheet">
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top border-bottom">
-    <div class="container">
-      <a class="navbar-brand fw-bold text-primary" href="#">Blessing Ahunanya</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+  <!-- Custom navigation markup with Tailwind and fly-in -->
+  <nav class="bg-white/30 backdrop-blur-lg border-b border-white/20 py-4 px-6 shadow-lg rounded-b-3xl fly-in">
+    <div class="max-w-7xl mx-auto flex items-center justify-between flex-wrap relative">
+      <a href="#" class="text-2xl font-bold text-gray-900">Blessing Ahunanya</a>
+      <!-- Mobile menu toggle button -->
+      <button id="navToggle" class="md:hidden ml-auto p-2 rounded-lg bg-white/40 backdrop-blur border border-white/20 shadow hover:bg-white/70 transition-all focus:outline-none" aria-label="Toggle navigation">
+        <svg class="w-7 h-7 text-gray-900" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link active text-primary" aria-current="page" href="#profile">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#services">Services</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#stack">Tech Stack</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#portfolio">Portfolio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#contact">Contact</a>
-          </li>
-        </ul>
-      </div>
+      <ul id="navMenu" class="hidden md:flex flex-col md:flex-row gap-6 text-base font-medium text-gray-700 bg-white/90 md:bg-transparent shadow-2xl md:shadow-none border md:border-none rounded-2xl md:rounded-none p-6 md:p-0 z-50 mt-4 md:mt-0">
+        <li><a href="#profile" class="hover:text-black">Home</a></li>
+        <li><a href="#services" class="hover:text-black">Services</a></li>
+        <li><a href="#stack" class="hover:text-black">Tech Stack</a></li>
+        <li><a href="#portfolio" class="hover:text-black">Portfolio</a></li>
+        <li><a href="#contact" class="hover:text-black">Contact</a></li>
+      </ul>
     </div>
   </nav>
   
-  <section class="hero-section d-flex align-items-center justify-content-center text-center" id="profile" style="min-height: 100vh; position: relative;">
-    <div style="position:absolute;top:0;left:0;width:100%;height:100%;z-index:0;opacity:0.15;">
+<section id="profile" class="min-h-screen relative flex items-center justify-center text-center animate-fadeIn bg-gradient-to-br from-pink-50 via-purple-50 to-indigo-100">
+    <div class="absolute top-0 left-0 w-full h-full z-0 opacity-15 pointer-events-none select-none fly-in">
       <svg width="100%" height="100%" viewBox="0 0 1440 320" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path fill="#e75480" fill-opacity="0.15" d="M0,160L60,170.7C120,181,240,203,360,197.3C480,192,600,160,720,133.3C840,107,960,85,1080,101.3C1200,117,1320,171,1380,197.3L1440,224L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
       </svg>
     </div>
-    <div class="container py-5" style="z-index:1;position:relative;">
-      <img src="images/my image.png" alt="Blessing Ahunanya" class="rounded-circle shadow mb-4" style="width: 160px; height: 160px; object-fit: cover; border: 4px solid var(--main-fem-color); background: #fff;">
-      <h1 class="display-4 fw-bold mb-2 text-mary">Blessing Ahunanya</h1>
-      <h2 class="mb-3 text-mary">Frontend Web Developer</h2>
-      <p class="lead mb-4 text-secondary">I build beautiful, responsive, and high-performance websites and web application.<br>Let’s turn your ideas into reality.</p>
-      <div class="d-flex justify-content-center align-items-center gap-3 mb-4" style="font-size:2rem;">
-        <a href="mailto:blazeahu123@gmail.com" class="text-decoration-none" style="color:#e75480;" title="Email"><ion-icon name="mail-outline"></ion-icon></a>
-        <a href="https://www.linkedin.com/in/blessing-ahunanya-7238b3307?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=andriod_app" target="_blank" class="text-decoration-none" style="color:#0a66c2;" title="LinkedIn"><ion-icon name="logo-linkedin"></ion-icon></a>
-        <a href="https://github.com/ahunanya" target="_blank" class="text-decoration-none" style="color:#333;" title="GitHub"><ion-icon name="logo-github"></ion-icon></a>
-        <a href="https://www.tiktok.com/@blessingahunanya" target="_blank" class="text-decoration-none" style="color:#000;" title="TikTok"><ion-icon name="logo-tiktok"></ion-icon></a>
+    <div class="z-10 relative px-4 py-12 max-w-3xl mx-auto animate-fly-in-up bg-white/30 backdrop-blur-lg rounded-3xl shadow-2xl border border-white/20">
+      <div class="relative flex justify-center items-center mb-4 fly-in">
+        <span class="absolute w-36 h-36 rounded-full bg-gradient-to-r from-pink-400 via-purple-400 to-indigo-400 animate-pulse opacity-80 blur-lg"></span>
+        <img src="images/my image.png" alt="Blessing Ahunanya" class="w-32 h-32 object-cover rounded-full shadow-md border-4 border-white bg-white relative z-10">
       </div>
-      <a class="btn btn-primary btn-lg px-4 me-2" href="mailto:blazeahu123@gmail.com"><ion-icon name="mail-outline"></ion-icon> Contact Me</a>
-      <a class="btn btn-outline-primary btn-lg px-4" href="#portfolio"><ion-icon name="briefcase-outline"></ion-icon> View Portfolio</a>
+      <h1 class="text-2xl md:text-3xl font-bold mb-1 text-gray-900">Blessing Ahunanya</h1>
+      <h2 class="mb-2 text-base md:text-lg text-gray-600 fly-in">Frontend Web Developer</h2>
+      <p class="text-sm md:text-base mb-4 text-gray-500 fly-in">I build beautiful, responsive, and high-performance websites and web application.<br>Let’s turn your ideas into reality.</p>
+      <div class="flex justify-center items-center gap-4 mb-4 text-xl md:text-2xl fly-in">
+        <a href="mailto:blazeahu123@gmail.com" title="Email" class="hover:text-pink-500 text-pink-500"><ion-icon name="mail-outline"></ion-icon></a>
+        <a href="https://www.linkedin.com/in/blessing-ahunanya-7238b3307?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=andriod_app" target="_blank" title="LinkedIn" class="hover:text-blue-700 text-blue-700"><ion-icon name="logo-linkedin"></ion-icon></a>
+        <a href="https://github.com/ahunanya" target="_blank" title="GitHub" class="hover:text-gray-900 text-gray-800"><ion-icon name="logo-github"></ion-icon></a>
+        <a href="https://www.tiktok.com/@blessingahunanya" target="_blank" title="TikTok" class="hover:text-black text-black"><ion-icon name="logo-tiktok"></ion-icon></a>
+      </div>
+      <a href="mailto:blazeahu123@gmail.com" class="inline-block bg-gray-900 text-white px-8 py-3 rounded-lg text-lg mr-4 hover:bg-gray-700 transition"><ion-icon name="mail-outline"></ion-icon> Contact Me</a>
+      <a href="#portfolio" class="inline-block border-2 border-gray-900 text-gray-900 px-8 py-3 rounded-lg text-lg hover:bg-gray-900 hover:text-white transition fly-in"><ion-icon name="briefcase-outline"></ion-icon> View Portfolio</a>
     </div>
   </section>
-  <section class="container py-5" id="stack">
-    <h2 class="text-center mb-4 fw-bold">Tech Stack</h2>
-    <div class="row justify-content-center g-4">
-      <div class="col-6 col-md-2 text-center">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" style="height:48px;">
+<section id="stack" class="py-12 px-4 max-w-5xl mx-auto animate-fly-in-left bg-gradient-to-br from-pink-50 via-purple-50 to-indigo-100 rounded-3xl shadow-xl border border-white/20 my-12">
+    <h2 class="text-center mb-8 font-bold text-2xl fly-in">Tech Stack</h2>
+    <div class="flex flex-wrap justify-center gap-8 fly-in">
+      <div class="flex flex-col items-center w-24">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" class="h-12">
         <div class="mt-2">HTML5</div>
       </div>
-      <div class="col-6 col-md-2 text-center">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" style="height:48px;">
+      <div class="flex flex-col items-center w-24 bg-white/30 backdrop-blur-lg rounded-2xl shadow-lg border border-white/20 p-4 transition-transform hover:scale-105 hover:shadow-pink-200">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" class="h-12">
         <div class="mt-2">CSS3</div>
       </div>
-      <div class="col-6 col-md-2 text-center">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" style="height:48px;">
+      <div class="flex flex-col items-center w-24">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="h-12">
         <div class="mt-2">JavaScript</div>
       </div>
-      <div class="col-6 col-md-2 text-center">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap" style="height:48px;">
+      <div class="flex flex-col items-center w-24">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap" class="h-12">
         <div class="mt-2">Bootstrap</div>
       </div>
-      <div class="col-6 col-md-2 text-center">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind CSS" style="height:48px;">
+      <div class="flex flex-col items-center w-24">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind CSS" class="h-12">
         <div class="mt-2">Tailwind CSS</div>
       </div>
-      <div class="col-6 col-md-2 text-center">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" style="height:48px;">
+      <div class="flex flex-col items-center w-24">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" class="h-12">
         <div class="mt-2">React</div>
       </div>
-      <div class="col-6 col-md-2 text-center">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" style="height:48px;">
+      <div class="flex flex-col items-center w-24">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" class="h-12">
         <div class="mt-2">Node.js</div>
       </div>
     </div>
   </section>
 
-  <section class="container py-5" id="services">
-    <h2 class="text-center mb-4 fw-bold">My Services</h2>
-    <div class="row g-4">
-      <div class="col-md-4">
-        <div class="card h-100 shadow-sm border-0">
-          <div class="card-body text-center">
+<section id="services" class="py-12 px-4 max-w-5xl mx-auto animate-fly-in-right bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-100 rounded-3xl shadow-xl border border-white/20 my-12">
+    <h2 class="text-center mb-8 font-bold text-2xl fly-in">My Services</h2>
+    <div class="flex flex-wrap gap-8 justify-center fly-in">
+      <div class="flex-1 min-w-[300px] max-w-xs bg-white rounded-2xl shadow-md p-8 animate-fly-in-up">
+        <div class="text-center">
             <ion-icon name="code-slash-outline" size="large"></ion-icon>
-            <h5 class="card-title mt-3">Frontend Development</h5>
-            <p class="card-text">Proficient in HTML, CSS, Bootstrap, Tailwind, React, nodejs and JavaScript. I translate designs into functional, visually appealing websites and develop dynamic web interfaces using modern frameworks.</p>
+            <h5 class="mt-3 text-lg font-semibold">Frontend Development</h5>
+            <p class="text-gray-500">Proficient in HTML, CSS, Bootstrap, Tailwind, React, nodejs and JavaScript. I translate designs into functional, visually appealing websites and develop dynamic web interfaces using modern frameworks.</p>
           </div>
         </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card h-100 shadow-sm border-0">
-          <div class="card-body text-center">
+      <div class="flex-1 min-w-[300px] max-w-xs bg-white/30 backdrop-blur-lg rounded-2xl shadow-2xl border border-white/20 p-8 animate-fly-in-up transition-transform hover:scale-105 hover:shadow-pink-200">
+        <div class="text-center">
             <ion-icon name="brush-outline" size="large"></ion-icon>
-            <h5 class="card-title mt-3">UI/UX Design</h5>
-            <p class="card-text">I create user-friendly, modern, and responsive designs that ensure a seamless experience across all devices and platforms.</p>
+            <h5 class="mt-3 text-lg font-semibold">UI/UX Design</h5>
+            <p class="text-gray-500">I create user-friendly, modern, and responsive designs that ensure a seamless experience across all devices and platforms.</p>
           </div>
         </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card h-100 shadow-sm border-0">
-          <div class="card-body text-center">
+      <div class="flex-1 min-w-[300px] max-w-xs bg-white rounded-2xl shadow-md p-8 animate-fly-in-up">
+        <div class="text-center">
             <ion-icon name="analytics-outline" size="large"></ion-icon>
-            <h5 class="card-title mt-3">Web Consulting</h5>
-            <p class="card-text">Offering expert advice on web strategy, optimization, and best practices to help your business grow online.</p>
+            <h5 class="mt-3 text-lg font-semibold">Web Consulting</h5>
+            <p class="text-gray-500">Offering expert advice on web strategy, optimization, and best practices to help your business grow online.</p>
           </div>
         </div>
-      </div>
     </div>
   </section>
 
-  <section class="container py-5" id="portfolio">
-    <h2 class="text-center mb-4 fw-bold">Portfolio</h2>
-    <div id="portfolioCarousel" class="carousel slide" data-bs-ride="carousel">
-      <!-- Carousel indicators -->
-      <div class="carousel-indicators mb-4">
-        <button type="button" data-bs-target="#portfolioCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1" style="width:32px;height:8px;border-radius:4px;background:#fff;border:1.5px solid #e75480;box-shadow:0 2px 8px rgba(0,0,0,0.07);margin:0 4px;"></button>
-        <button type="button" data-bs-target="#portfolioCarousel" data-bs-slide-to="1" aria-label="Slide 2" style="width:32px;height:8px;border-radius:4px;background:#fff;border:1.5px solid #b57edc;box-shadow:0 2px 8px rgba(0,0,0,0.07);margin:0 4px;"></button>
-      </div>
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <div class="row justify-content-center">
-            <div class="col-md-8 col-lg-6">
-              <div class="card h-100 shadow-sm border-0">
-                <img src="images/ivc.JPG" alt="IVC Project" class="card-img-top" style="object-fit:cover; height:300px;">
-                <div class="card-body text-center">
-                  <h5 class="card-title">IVC Forms & Frames</h5>
-                  <a class="btn btn-outline-primary" href="https://ivcformsandframes.great-site.net/" target="_blank">View Project</a>
-                </div>
-              </div>
-            </div>
+<section id="portfolio" class="py-12 px-4 max-w-5xl mx-auto animate-fly-in-up">
+    <h2 class="text-center mb-12 font-extrabold text-4xl bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 bg-clip-text text-transparent fly-in">Portfolio</h2>
+    <div class="flex flex-col items-center fly-in">
+      <div id="portfolioCarousel3D" class="relative w-full max-w-xl h-80" style="perspective: 1000px;">
+        <div id="carouselInner" class="absolute w-full h-full transition-transform duration-700 fly-in" style="transform-style: preserve-3d;">
+          <div class="absolute w-72 h-72 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-white/30 backdrop-blur-lg border border-white/20 rounded-3xl shadow-2xl flex flex-col items-center justify-center text-center ring-2 ring-pink-400/30 hover:scale-105 hover:shadow-pink-200 transition-all duration-500 animate-fadeIn" style="transform: rotateY(0deg) translateZ(320px);">
+            <img src="images/ivc.JPG" alt="Project 1" class="w-36 h-36 object-cover rounded-2xl mb-4 shadow-lg border-4 border-white/40">
+            <a href="https://ivcformsandframes.great-site.net/" target="_blank" class="font-extrabold text-2xl mb-2 bg-gradient-to-r from-pink-400 via-purple-400 to-indigo-400 bg-clip-text text-transparent hover:underline">View project</a>
+          </div>
+          <div class="absolute w-72 h-72 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-white/30 backdrop-blur-lg border border-white/20 rounded-3xl shadow-2xl flex flex-col items-center justify-center text-center ring-2 ring-indigo-400/30 hover:scale-105 hover:shadow-indigo-200 transition-all duration-500 animate-fadeIn" style="transform: rotateY(120deg) translateZ(320px);">
+            <img src="images/Beige New Product Mockup Now Available Facebook Post_20250701_214536_0000.jpg" alt="Project 2" class="w-36 h-36 object-cover rounded-2xl mb-4 shadow-lg border-4 border-white/40">
+            <a href="https://articulatebuildingsystems.com/" target="_blank" class="font-extrabold text-2xl mb-2 bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent hover:underline">View project</a>
+          </div>
+          <div class="absolute w-72 h-72 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-white/30 backdrop-blur-lg border border-white/20 rounded-3xl shadow-2xl flex flex-col items-center justify-center text-center ring-2 ring-purple-400/30 hover:scale-105 hover:shadow-purple-200 transition-all duration-500 animate-fadeIn" style="transform: rotateY(240deg) translateZ(320px);">
+            <img src="images/WhatsApp Image 2025-07-31 at 07.49.58_1482450e.jpg" alt="Project 3" class="w-36 h-36 object-cover rounded-2xl mb-4 shadow-lg border-4 border-white/40">
+            <a href="https://newsletter-signup-qv93rspo2-blessing-ahunanyas-projects.vercel.app/" target="_blank" class="font-extrabold text-2xl mb-2 bg-gradient-to-r from-purple-400 via-pink-400 to-indigo-400 bg-clip-text text-transparent hover:underline">View project</a>
           </div>
         </div>
-        <div class="carousel-item">
-          <div class="row justify-content-center">
-            <div class="col-md-8 col-lg-6">
-              <div class="card h-100 shadow-sm border-0">
-                <img src="images/Beige New Product Mockup Now Available Facebook Post_20250701_214536_0000.jpg" alt="Another Project" class="card-img-top" style="object-fit:cover; height:300px;">
-                <div class="card-body text-center">
-                  <h5 class="card-title">Articulate building systems</h5>
-                  <a class="btn btn-outline-primary" href="https://articulatebuildingsystems.com" target="_blank">View Project</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <input id="carouselSlider" type="range" min="0" max="2" value="0" class="absolute left-1/2 -translate-x-1/2 bottom-0 w-2/3 mt-8 slider-thumb z-20" style="accent-color: #a21caf;" />
+        <div class="absolute inset-0 pointer-events-none rounded-3xl border-4 border-white/10 animate-fadeIn"></div>
       </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#portfolioCarousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#portfolioCarousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
+      <div class="flex justify-center gap-4 mt-8">
+        <span class="w-4 h-4 rounded-full bg-gradient-to-br from-pink-400 to-indigo-400 opacity-80 border-2 border-white shadow-lg fly-in" id="dot0"></span>
+        <span class="w-4 h-4 rounded-full bg-gradient-to-br from-indigo-400 to-pink-400 opacity-50 border-2 border-white shadow-lg fly-in" id="dot1"></span>
+        <span class="w-4 h-4 rounded-full bg-gradient-to-br from-purple-400 to-pink-400 opacity-50 border-2 border-white shadow-lg fly-in" id="dot2"></span>
+      </div>
     </div>
   </section>
    
-  <footer class="bg-white border-top pt-5 pb-3 mt-5" id="contact">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-md-6 mb-3 mb-md-0">
-          <h4 class="fw-bold text-primary">Get in Touch</h4>
-          <p class="mb-2 text-p">Let me design your website & app</p>
-          <a class="btn btn-primary me-2 mb-2" href="mailto:blazeahu123@gmail.com"><ion-icon name="mail-outline"></ion-icon> Email Me</a>
-          <a class="btn btn-outline-primary mb-2" href="https://www.linkedin.com/in/blessing-ahunanya-7238b3307?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=andriod_app" target="_blank"><ion-icon name="logo-linkedin"></ion-icon> LinkedIn</a>
-          <a class="btn btn-outline-primary mb-2" href="https://github.com/ahunanya" target="_blank"><ion-icon name="logo-github"></ion-icon> GitHub</a>
-          <a class="btn btn-outline-primary mb-2" href="https://www.tiktok.com/@blessingahunanya" target="_blank"><ion-icon name="logo-tiktok"></ion-icon> TikTok</a>
+  <footer id="contact" class="bg-white/30 backdrop-blur-lg border-t border-white/20 py-12 px-4 mt-12 rounded-t-3xl shadow-2xl animate-fly-in-up">
+    <div class="max-w-5xl mx-auto flex flex-col items-center justify-center gap-8 text-center fly-in">
+      <div class="w-full bg-gradient-to-br from-pink-100/60 via-purple-100/60 to-indigo-100/60 backdrop-blur-lg rounded-2xl shadow-2xl border border-white/30 p-8 flex flex-col items-center fly-in">
+        <h4 class="font-extrabold text-2xl mb-2 bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 bg-clip-text text-transparent fly-in">Let's Connect</h4>
+        <p class="mb-6 text-gray-600 font-medium fly-in">Ready to start your next project or have a question? Reach out and let's build something amazing together!</p>
+        <a href="mailto:blazeahu123@gmail.com" class="inline-flex items-center gap-2 bg-gradient-to-r from-pink-500 to-indigo-500 text-white px-6 py-2 rounded-lg font-semibold shadow hover:scale-105 hover:shadow-pink-200 transition mb-4 fly-in"><ion-icon name="mail-outline"></ion-icon> Email Me</a>
+        <div class="flex gap-4 mt-4 justify-center fly-in">
+          <a href="https://www.linkedin.com/in/blessing-ahunanya-7238b3307?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=andriod_app" target="_blank" class="w-10 h-10 flex items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-indigo-500 text-white shadow-lg hover:scale-110 hover:shadow-indigo-200 transition"><ion-icon name="logo-linkedin"></ion-icon></a>
+          <a href="https://github.com/ahunanya" target="_blank" class="w-10 h-10 flex items-center justify-center rounded-full bg-gradient-to-br from-gray-800 to-gray-900 text-white shadow-lg hover:scale-110 hover:shadow-gray-400 transition"><ion-icon name="logo-github"></ion-icon></a>
+          <a href="https://www.tiktok.com/@blessingahunanya" target="_blank" class="w-10 h-10 flex items-center justify-center rounded-full bg-gradient-to-br from-pink-400 to-black text-white shadow-lg hover:scale-110 hover:shadow-pink-200 transition"><ion-icon name="logo-tiktok"></ion-icon></a>
         </div>
-        <div class="col-md-6 text-md-end">
-          <p class="mb-0 text-p">&copy; 2025 Blessing Ahunanya. All rights reserved.</p>
-        </div>
+      </div>
+      <div class="w-full flex flex-col items-center justify-center bg-white/20 backdrop-blur-lg rounded-2xl shadow border border-white/20 p-8 mt-4 fly-in">
+        <p class="text-lg font-semibold bg-gradient-to-r from-pink-400 via-purple-400 to-indigo-400 bg-clip-text text-transparent mb-2 fly-in">Blessing Ahunanya</p>
+        <p class="text-gray-500 fly-in">&copy; 2025 Blessing Ahunanya. All rights reserved.</p>
       </div>
     </div>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- Optional: Add custom JS here -->
+  <script>
+    // Fly-in on scroll for all .fly-in elements
+    const flyInEls = document.querySelectorAll('.fly-in');
+    const observer = new window.IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    flyInEls.forEach(el => observer.observe(el));
+    // 3D Carousel logic
+    const carouselInner = document.getElementById('carouselInner');
+    const prevBtn = document.getElementById('carouselPrev');
+    const nextBtn = document.getElementById('carouselNext');
+    const dots = [
+      document.getElementById('dot0'),
+      document.getElementById('dot1'),
+      document.getElementById('dot2')
+    ];
+    const slider = document.getElementById('carouselSlider');
+    let current = 0;
+    const total = 3;
+    function updateCarousel() {
+      const angle = current * -120;
+      carouselInner.style.transform = `translateZ(-320px) rotateY(${angle}deg)`;
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('opacity-80', i === current);
+        dot.classList.toggle('opacity-50', i !== current);
+      });
+      slider.value = current;
+    }
+    slider.addEventListener('input', (e) => {
+      current = parseInt(e.target.value);
+      updateCarousel();
+    });
+    updateCarousel();
+    // Navbar mobile toggle logic
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navMenu');
+    navToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('hidden');
+    });
+  </script>
 </body>
 </html>
